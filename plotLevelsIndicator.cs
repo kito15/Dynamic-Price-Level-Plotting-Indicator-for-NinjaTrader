@@ -59,8 +59,8 @@ namespace NinjaTrader.NinjaScript.Indicators
 			}
 			else if (State == State.DataLoaded)
 	        {
-	             // Set up timer to check for updates every 20 minutes
-	            timer = new System.Timers.Timer(20 * 60 * 1000);
+	             // Set up timer to check for updates every 10 minutes
+	            timer = new System.Timers.Timer(10 * 60 * 1000);
 	            timer.Elapsed += OnTimerElapsed;
 	            timer.AutoReset = true;
 	            timer.Enabled = true;
@@ -83,8 +83,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 	    {
 	        // Download file and parse its contents here
 			// Set the initial URL based on the current date
-			string currentDate = DateTime.Now.ToString("M-d-yyyy") + ".txt";
-	        string url = "https://www.dropbox.com/s/tsy74sc94vglzbz/"+ currentDate+"?dl=1";
+	        string url = "https://levels.yuda.men/levels.txt";
 	        using (WebClient client = new WebClient())
 	        {
 	            string content = client.DownloadString(url);
